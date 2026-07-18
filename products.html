@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — AgroBloom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary: #D9FF3F;
+      --dark: #0F0F0F;
+      --gray: #EAEAEA;
+    }
+
+    * {
+      margin: 0;
+
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ==================== NAVBAR ==================== */
+    .navbar-wrap {
+      position: fixed;
+      top: 22px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1180px;
+      background: rgba(15, 15, 15, 0.92);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 50px;
+      padding: 12px 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      color: white;
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0 8px;
+      padding: 10px 18px;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 50px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-cta .btn-primary {
+      background: var(--primary);
+      color: black;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Simple Responsive */
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Hero - Made like original */
+    .hero {
+      position: relative;
+      height: 105vh;
+      min-height: 700px;
+      background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), url('images/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      padding: 0 40px 120px;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 68px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p.hero-sub {
+      font-size: 22px;
+      margin-bottom: 12px;
+      opacity: 0.95;
+    }
+
+    .hero p.hero-desc {
+      font-size: 18px;
+      max-width: 520px;
+      opacity: 0.9;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: black;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 17px;
+      margin-right: 15px;
+    }
+
+    /* .btn:hover {
+      background: #c8f132;
+    } */
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 0;
+    }
+
+    h2 {
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 19px;
+      color: #555;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    footer {
+      background: #0F0F0F;
+      color: #aaa;
+      padding: 70px 0 40px;
+      text-align: center;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      margin: 0 18px;
+      text-decoration: none;
+    }
+
+    /* ==========================================
+   PRODUCTS SECTION
+========================================== */
+
+    .products {
+      padding: 100px 0;
+      background: #fff;
+    }
+
+    .products .container {
+      width: 90%;
+      max-width: 1280px;
+      margin: auto;
+    }
+
+    /* Heading */
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f3f3f3;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #D9FF3F;
+    }
+
+    .section-heading {
+      font-size: 50px;
+      margin: 20px 0 12px;
+      color: #111;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: #666;
+      max-width: 600px;
+      margin: auto;
+      line-height: 28px;
+    }
+
+    /* ==========================================
+   CATEGORY BUTTONS
+========================================== */
+
+    .cat-tabs {
+
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+
+      margin: 45px 0;
+
+    }
+
+    .cat-tab {
+
+      padding: 12px 22px;
+
+      border: 1px solid #ddd;
+
+      background: #fff;
+
+      border-radius: 30px;
+
+      cursor: pointer;
+
+      font-weight: 600;
+
+      transition: .3s;
+
+    }
+
+    /* .cat-tab:hover{
+
+    background:#111;
+    color:#fff;
+
+} */
+
+    .cat-tab.active {
+
+      background: #111;
+      color: #fff;
+
+    }
+
+    /* ==========================================
+   GRID
+========================================== */
+
+    .products-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 28px;
+
+    }
+
+    /* ==========================================
+   CARD
+========================================== */
+
+    .product-card {
+
+      background: #fff;
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      border: 1px solid #eee;
+
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+
+      transition: .35s;
+
+    }
+
+    /* 
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+
+} */
+
+    /* Image */
+
+    .product-imgwrap {
+
+      height: 220px;
+
+      overflow: hidden;
+
+      position: relative;
+
+    }
+
+    .product-imgwrap img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: .5s;
+
+    }
+
+    /* .product-card:hover img{
+
+    transform:scale(1.08);
+
+} */
+
+    /* Badge */
+
+    .product-badge {
+
+      position: absolute;
+
+      top: 15px;
+      left: 15px;
+
+      background: #D9FF3F;
+
+      padding: 6px 14px;
+
+      border-radius: 20px;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+    }
+
+    /* Body */
+
+    .product-body {
+
+      padding: 22px;
+
+    }
+
+    .product-tag {
+
+      color: #8a8a8a;
+
+      text-transform: uppercase;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: 1px;
+
+      margin-bottom: 8px;
+
+    }
+
+    .product-body h3 {
+
+      font-size: 24px;
+
+      margin-bottom: 12px;
+
+      color: #111;
+
+    }
+
+    .product-body p {
+
+      color: #666;
+
+      line-height: 28px;
+
+      margin-bottom: 18px;
+
+    }
+
+    /* Features */
+
+    .product-features {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-bottom: 22px;
+
+    }
+
+    .product-features span {
+
+      background: #f4f4f4;
+
+      padding: 7px 14px;
+
+      border-radius: 20px;
+
+      font-size: 13px;
+
+    }
+
+    /* Button */
+
+    .btn-dark {
+
+      display: block;
+
+      width: 100%;
+
+      text-align: center;
+
+      background: #111;
+
+      color: #fff;
+
+      padding: 14px;
+
+      border-radius: 30px;
+
+      text-decoration: none;
+
+      font-weight: 600;
+
+      transition: .3s;
+
+    }
+
+    /* .btn-dark:hover{
+
+    background:#D9FF3F;
+
+    color:#111;
+
+} */
+
+    /* ==========================================
+   RESPONSIVE
+========================================== */
+
+    @media(max-width:992px) {
+
+      .products-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+      }
+
+    }
+
+    @media(max-width:768px) {
+
+      .products {
+
+        padding: 70px 20px;
+
+      }
+
+      .products-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .section-heading {
+
+        font-size: 36px;
+
+      }
+
+      .product-imgwrap {
+
+        height: 200px;
+
+      }
+
+    }
+
+    /* ==========================
+   PAGE HERO
+========================== */
+
+    .page-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    /* Background Image */
+
+    .page-hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    /* Dark Overlay */
+
+    .page-hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .45);
+      z-index: 2;
+    }
+
+    /* Text */
+
+    .page-hero-content {
+      position: absolute;
+      left: 60px;
+      bottom: 60px;
+
+      z-index: 3;
+      color: #fff;
+
+      max-width: 550px;
+    }
+
+    /* Breadcrumb */
+
+    .breadcrumb {
+      font-size: 14px;
+      color: #D9FF3F;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .breadcrumb span {
+      color: #fff;
+      margin: 0 8px;
+    }
+
+    /* Heading */
+
+    .page-hero-content h1 {
+      font-size: 68px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    /* Paragraph */
+
+    .page-hero-content p {
+      font-size: 20px;
+      line-height: 1.7;
+      color: #f1f1f1;
+    }
+
+    /* Responsive */
+
+    @media(max-width:768px) {
+
+      .page-hero {
+        height: 70vh;
+      }
+
+      .page-hero-content {
+        left: 25px;
+        bottom: 30px;
+      }
+
+      .page-hero-content h1 {
+        font-size: 40px;
+      }
+
+      .page-hero-content p {
+        font-size: 16px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+     NAVBAR
+============================================================ -->
+  <nav>
+    <div class="navbar-wrap">
+      <div class="navbar">
+        <a href="index.html" class="logo">AgroBloom</a>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="products.html">Products</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="nav-cta">
+          <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- ============================================================
+     PAGE HERO
+============================================================ -->
+  <section class="page-hero">
+    <img class="page-hero-bg"
+      src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1600&auto=format&fit=crop"
+      alt="Agriculture technology hardware in a field">
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb" data-reveal>Home <span>/</span> Products</div>
+      <h1 data-reveal>Hardware Built<br>for the Field</h1>
+      <p data-reveal>Six product lines engineered to survive weather, dust, and daily use — while delivering data you
+        can trust.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     PRODUCT CATEGORIES
+============================================================ -->
+  <section class="products">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div class="eyebrow">Full Catalog</div>
+        <h2 class="section-heading">Product Categories</h2>
+        <p class="section-sub">Every device is field-tested, weatherproof, and built to integrate with the AgroBloom
+          dashboard.</p>
+      </div>
+
+      <!-- <div class="cat-tabs" data-reveal>
+      <button class="cat-tab active" data-filter="all">All</button>
+      <button class="cat-tab" data-filter="irrigation">Irrigation</button>
+      <button class="cat-tab" data-filter="analytics">Analytics</button>
+      <button class="cat-tab" data-filter="soil">Soil</button>
+      <button class="cat-tab" data-filter="aerial">Aerial</button>
+      <button class="cat-tab" data-filter="weather">Weather</button>
+      <button class="cat-tab" data-filter="sensors">Sensors</button>
+    </div> -->
+
+      <div class="products-grid" id="productsGrid">
+        <div class="product-card" data-reveal data-category="irrigation">
+          <div class="product-imgwrap">
+            <!-- <span class="product-badge">Best Seller</span> -->
+            <img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?q=80&w=1000&auto=format&fit=crop"
+              alt="Smart irrigation controller in a field">
+          </div>
+          <div class="product-body">
+            <div class="product-tag">Smart Irrigation</div>
+            <h3>FlowSense Controller</h3>
+            <p>Zone-based irrigation control with live moisture feedback loops that cut water use by up to 30%.</p>
+            <div class="product-features"><span>Solar-powered</span><span>Wi-Fi + LoRa</span><span>8 zones</span></div>
+            <a href="contact.html" class="btn btn-dark">Request a Quote</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-reveal data-category="analytics">
+          <div class="product-imgwrap">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop"
+              alt="Dashboard displaying AI crop analytics">
+          </div>
+          <div class="product-body">
+            <div class="product-tag">AI Analytics</div>
+            <h3>YieldScope Platform</h3>
+            <p>Predictive yield modeling and early stress detection powered by satellite and sensor fusion.</p>
+            <div class="product-features"><span>Cloud dashboard</span><span>Mobile app</span></div>
+            <a href="contact.html" class="btn btn-dark">Request a Quote</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-reveal data-category="soil">
+          <div class="product-imgwrap">
+            <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?q=80&w=1000&auto=format&fit=crop"
+              alt="Soil sensor probe in dark soil">
+          </div>
+          <div class="product-body">
+            <div class="product-tag">Soil Monitoring</div>
+            <h3>RootSense Probe</h3>
+            <p>Multi-depth soil probe tracking moisture, EC, and temperature at every root zone.</p>
+            <div class="product-features"><span>5-year battery</span><span>Real-time sync</span></div>
+            <a href="contact.html" class="btn btn-dark">Request a Quote</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-reveal data-category="aerial">
+          <div class="product-imgwrap">
+            <!-- <span class="product-badge">New</span> -->
+            <img src="https://images.unsplash.com/photo-1508614999368-9260051292e5?q=80&w=1000&auto=format&fit=crop"
+              alt="Agriculture drone flying over crop field">
+          </div>
+          <div class="product-body">
+            <div class="product-tag">Agriculture Drone</div>
+            <h3>SkyScout Drone</h3>
+            <p>Autonomous multispectral flights that map crop stress across your entire acreage in minutes.</p>
+            <div class="product-features"><span>45-min flight</span><span>4K multispectral</span></div>
+            <a href="contact.html" class="btn btn-dark">Request a Quote</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-reveal data-category="weather">
+          <div class="product-imgwrap">
+            <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?q=80&w=1000&auto=format&fit=crop"
+              alt="Weather station mounted in a field">
+          </div>
+          <div class="product-body">
+            <div class="product-tag">Weather Station</div>
+            <h3>SkyWatch Station</h3>
+            <p>Hyperlocal forecasting with frost, drought, and storm alerts sent straight to your phone.</p>
+            <div class="product-features"><span>7-in-1 sensor</span><span>Solar-powered</span></div>
+            <a href="contact.html" class="btn btn-dark">Request a Quote</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-reveal data-category="sensors">
+          <div class="product-imgwrap">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop"
+              alt="Wireless smart sensor array in crop rows">
+          </div>
+          <div class="product-body">
+            <div class="product-tag">Smart Sensors</div>
+            <h3>CanopyNode Array</h3>
+            <p>Wireless mesh sensors tracking canopy temperature, humidity, and leaf wetness in real time.</p>
+            <div class="product-features"><span>Mesh network</span><span>IP68-rated</span></div>
+            <a href="contact.html" class="btn btn-dark">Request a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     CTA
+============================================================ -->
+  <!-- <section>
+  <div class="container">
+    <div class="cta-banner" data-reveal>
+      <div class="cta-copy">
+        <h2>Not sure which device fits?</h2>
+        <p>Our team will help you build the right hardware stack for your acreage and crop mix.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary" onclick="ripple(event)">Talk to Sales <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+  <!-- ============================================================
+     FOOTER
+============================================================ -->
+  <footer>
+    <div class="container">
+      <p><strong>AgroBloom</strong> — Precision Agriculture Technology</p>
+      <div class="footer-links" style="margin: 25px 0;">
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p style="font-size: 14px;">© 2026 AgroBloom. All rights reserved.</p>
+    </div>
+  </footer>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- <script>
+  const navbarWrap = document.getElementById('navbarWrap');
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    navbarWrap.classList.toggle('scrolled', y > 40);
+    backToTop.classList.toggle('show', y > 700);
+  }, { passive:true });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e){
+      const targetId = this.getAttribute('href');
+      if (targetId.length > 1) {
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior:'smooth', block:'start' });
+        }
+      }
+    });
+  });
+
+  backToTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+  function ripple(e){
+    const btn = e.currentTarget;
+    const circle = document.createElement('span');
+    const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+    const rect = btn.getBoundingClientRect();
+    circle.style.width = circle.style.height = diameter + 'px';
+    circle.style.left = (e.clientX - rect.left - diameter/2) + 'px';
+    circle.style.top = (e.clientY - rect.top - diameter/2) + 'px';
+    circle.classList.add('ripple');
+    const old = btn.querySelector('.ripple');
+    if (old) old.remove();
+    btn.appendChild(circle);
+    setTimeout(() => circle.remove(), 600);
+  }
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.style.position = btn.style.position || 'relative';
+    btn.addEventListener('click', ripple);
+  });
+
+  /* ============================================================
+     PRODUCT CATEGORY FILTER
+  ============================================================ */
+  const catTabs = document.querySelectorAll('.cat-tab');
+  const productCards = document.querySelectorAll('#productsGrid .product-card');
+  catTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      catTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      productCards.forEach(card => {
+        const show = filter === 'all' || card.dataset.category === filter;
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script> -->
+
+</body>
+
+</html>
